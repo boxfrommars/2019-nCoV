@@ -7,8 +7,8 @@
 </head>
 <body>
     <pre>
-    Infected: {{ $infected }}
-    Deaths: {{ $dead }}
+    <b>Infected:</b> {{ $infected }}
+    <b>Deaths:</b> {{ $dead }}
     </pre>
 </body>
 </html>

@@ -6,6 +6,9 @@
     <title>2019-nCoV</title>
 </head>
 <body>
-
+    <pre>
+    Infected: {{ $infected }}
+    Deaths: {{ $dead }}
+    </pre>
 </body>
 </html>

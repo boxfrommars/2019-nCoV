@@ -10,37 +10,6 @@
 
     <title>2019-nCoV</title>
 
-    <style>
-        .fullscreen-bg {
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            overflow: hidden;
-            z-index: -100;
-            background-color: #333;
-        }
-
-        .fullscreen-bg__video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: auto;
-            height: auto;
-            min-width: 100%;
-            min-height: 100%;
-            -webkit-transform: translate(-50%, -50%);
-            -moz-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-        }
-
-        pre {
-            color: #eee;
-        }
-    </style>
-
     <meta property="og:title" content="" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="https://corona-virus.live/og-image.jpg" />
@@ -53,6 +22,7 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#333333">
+    <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
 
@@ -62,9 +32,25 @@
     </video>
 </div>
 
-<div class="container-lg" style="color: #eee; font-family: monospace; padding-top: 2em">
-    <b>Infected:</b> {{ $infected }} <br />
-    <b>Deaths:</b> {{ $dead }}
+<div class="container h-100">
+    <div class="row align-items-center h-100 counter-row">
+        <div class="col text-center">
+            <span class="counter">{{ $deaths }}</span>
+            <h3>deaths</h3>
+        </div>
+        <div class="col text-center">
+            <span class="counter">{{ $infected }}</span>
+            <h3>infected</h3>
+        </div>
+        <div class="col text-center">
+            <span class="counter">{{ $countries }}</span>
+            <h3>countries</h3>
+        </div>
+        <div class="col text-center">
+            <span class="counter">{{ $cities }}</span>
+            <h3>cities</h3>
+        </div>
+    </div>
 </div>
 
 <!-- Optional JavaScript -->

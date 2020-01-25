@@ -1,0 +1,47 @@
+html, body {
+    height: 100%;
+}
+
+.fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+    background-color: #333;
+}
+
+.fullscreen-bg__video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.container {
+    font-family: Verdana, serif;
+}
+
+.counter-row {
+    color: #FF4040;
+}
+
+.counter {
+    font-size: 3.5rem;
+}
+
+
+@media (min-width: 768px) {
+    .counter {
+        font-size: 7rem;
+    }
+}

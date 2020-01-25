@@ -48,6 +48,8 @@ class ParseStats extends Command
         $resultLines = explode('\n\n', $result['parse']['wikitext']['*']);
         $resultLines = [$result['parse']['wikitext']['*']];
 
+//        dd($resultLines);
+
         foreach ($resultLines as $line) {
             if (strpos($line, "'''Total'''") > 0) {
 
@@ -56,7 +58,7 @@ class ParseStats extends Command
 
 //                    $countries = substr_count(mb_strtolower($line), '| {{');
 
-                    preg_match_all('/^\|\s?{{/m', $line, $countries);
+                    preg_match_all('/(^\|\s?{{)|(^\|\s?\[\[)/m', $line, $countries);
                     $countries = count($countries[0]);
 
                     $matches = $matches[0];

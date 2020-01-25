@@ -46,6 +46,7 @@ class ParseStats extends Command
         $result = json_decode($output, true);
 
         $resultLines = explode('\n\n', $result['parse']['wikitext']['*']);
+        $resultLines = [$result['parse']['wikitext']['*']];
 
         foreach ($resultLines as $line) {
             if (strpos($line, "'''Total'''") > 0) {
@@ -53,7 +54,10 @@ class ParseStats extends Command
                 preg_match_all('/\'\'\'[^\']+\'\'\'/', $line, $matches);
                 if ((count($matches) === 1) && (count($matches[0]) >= 3)) {
 
-                    $countries = substr_count(mb_strtolower($line), 'flagu');
+//                    $countries = substr_count(mb_strtolower($line), '| {{');
+
+                    preg_match_all('/^\|\s?{{/m', $line, $countries);
+                    $countries = count($countries[0]);
 
                     $matches = $matches[0];
                     $indexOfTotal = array_search("'''Total'''", $matches);
@@ -64,7 +68,7 @@ class ParseStats extends Command
                     $result = json_encode([
                         'infected' => (int)$infected,
                         'deaths' => (int)$dead,
-                        'countries' => 14,
+                        'countries' => $countries,
                         'cities' => 32,
                     ]);
 

@@ -57,14 +57,16 @@
 <div class="fullscreen-bg">
     <video loop muted autoplay poster="/video/bg.jpg" class="fullscreen-bg__video" playsinline disablePictureInPicture>
         {{--            <source src="video/big_buck_bunny.webm" type="video/webm">--}}
-        <source src="/video/bg-movie.mp4" type="video/mp4">
+        <source src="/video/bg-movie-1.mp4" type="video/mp4">
         {{--            <source src="video/big_buck_bunny.ogv" type="video/ogg">--}}
     </video>
 </div>
-<pre>
-    <b>Infected:</b> {{ $infected }}
+
+
+<div class="container-lg" style="color: #eee; font-family: monospace; padding-top: 2em">
+    <b>Infected:</b> {{ $infected }} <br />
     <b>Deaths:</b> {{ $dead }}
-</pre>
+</div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

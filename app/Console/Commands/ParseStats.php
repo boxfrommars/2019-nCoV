@@ -52,6 +52,9 @@ class ParseStats extends Command
 
                 preg_match_all('/\'\'\'[^\']+\'\'\'/', $line, $matches);
                 if ((count($matches) === 1) && (count($matches[0]) >= 3)) {
+
+                    $countries = substr_count(mb_strtolower($line), 'flagu');
+
                     $matches = $matches[0];
                     $indexOfTotal = array_search("'''Total'''", $matches);
 
@@ -61,7 +64,7 @@ class ParseStats extends Command
                     $result = json_encode([
                         'infected' => (int)$infected,
                         'deaths' => (int)$dead,
-                        'countries' => 14,
+                        'countries' => $countries,
                         'cities' => 32,
                     ]);
 

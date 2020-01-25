@@ -56,12 +56,30 @@ html, body {
 #toggle-audio {
     width: 25px;
     height: 20px;
-    background-image: url('/video/audio-on.svg');
+    /*background-image: url('/video/audio-on.svg');*/
     background-size: cover;
     position: absolute;
-    right:20px;
     bottom: 20px;
 }
+
+#toggle-audio.audio-on {
+    background-image: url('/video/audio-on.svg');
+    background-size: cover;
+    width: 25px;
+    height: 20px;
+    right:20px;
+}
+
+#toggle-audio.audio-off {
+    background-image: url('/video/audio-off.svg');
+    background-size: cover;
+    width: 15px;
+    height: 20px;
+    right: 30px;
+}
+
+
+
 
 @media (min-width: 768px) {
     .counter {

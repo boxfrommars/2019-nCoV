@@ -35,7 +35,7 @@
 
 <div class="container h-100">
     <h1 class="text-hide page-title" style="">Coronavirus live</h1>
-    <a href="#" id="toggle-audio"></a>
+    <a href="#" id="toggle-audio" class="audio-on"></a>
 
     <div class="row align-items-center counter-row" style="height: 75%">
         <div class="col text-center">
@@ -68,8 +68,12 @@
         event.preventDefault();
         if (audio.paused) {
             audio.play();
+            btn.classList.add('audio-on');
+            btn.classList.remove('audio-off');
         } else {
             audio.pause();
+            btn.classList.add('audio-off');
+            btn.classList.remove('audio-on');
         }
     });
 </script>

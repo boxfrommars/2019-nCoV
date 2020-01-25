@@ -48,7 +48,7 @@ html, body {
     width: 128px;
     height: 56px;
     margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 15px;
     background-image:url('/logo.png');
     background-size: cover;
 }

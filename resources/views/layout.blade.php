@@ -56,9 +56,7 @@
 <body>
 <div class="fullscreen-bg">
     <video loop muted autoplay poster="/video/bg.jpg" class="fullscreen-bg__video" playsinline disablePictureInPicture>
-        {{--            <source src="video/big_buck_bunny.webm" type="video/webm">--}}
         <source src="/video/bg-movie-1.mp4" type="video/mp4">
-        {{--            <source src="video/big_buck_bunny.ogv" type="video/ogg">--}}
     </video>
 </div>
 

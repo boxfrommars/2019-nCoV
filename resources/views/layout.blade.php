@@ -36,30 +36,26 @@
             transform: translate(-50%, -50%);
         }
 
-        /*@media (max-width: 767px) {*/
-        /*    .fullscreen-bg {*/
-        /*        background: url('/video/bg.jpg') center center / cover no-repeat;*/
-        /*    }*/
-
-        /*    .fullscreen-bg__video {*/
-        /*        display: none;*/
-        /*    }*/
-        /*}*/
-
         pre {
             color: #eee;
         }
     </style>
 
-    <meta name="theme-color" content="#333" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#333333">
 </head>
 <body>
+
 <div class="fullscreen-bg">
-    <video loop muted autoplay poster="/video/bg.jpg" class="fullscreen-bg__video" playsinline disablePictureInPicture>
+    <video loop muted autoplay playsinline poster="/video/bg.jpg" class="fullscreen-bg__video">
         <source src="/video/bg-movie-1.mp4" type="video/mp4">
     </video>
 </div>
-
 
 <div class="container-lg" style="color: #eee; font-family: monospace; padding-top: 2em">
     <b>Infected:</b> {{ $infected }} <br />

@@ -64,7 +64,7 @@ class ParseStats extends Command
                     $result = json_encode([
                         'infected' => (int)$infected,
                         'deaths' => (int)$dead,
-                        'countries' => $countries,
+                        'countries' => 14,
                         'cities' => 32,
                     ]);
 

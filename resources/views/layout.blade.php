@@ -49,10 +49,10 @@
             <span class="counter">{{ $countries }}</span>
             <h3>countries</h3>
         </div>
-        <div class="col text-center">
-            <span class="counter">{{ $cities }}</span>
-            <h3>cities</h3>
-        </div>
+{{--        <div class="col text-center">--}}
+{{--            <span class="counter">{{ $cities }}</span>--}}
+{{--            <h3>cities</h3>--}}
+{{--        </div>--}}
     </div>
 </div>
 <audio src="/video/bg-audio.mp3" autoplay loop id="bg-audio">

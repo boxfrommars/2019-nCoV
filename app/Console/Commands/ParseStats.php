@@ -50,15 +50,13 @@ class ParseStats extends Command
         foreach ($resultLines as $line) {
             if (strpos($line, "'''Total'''") > 0) {
 
-                preg_match_all('/\'\'\'[^\']+\'\'\'/', $line, $matches, PREG_OFFSET_CAPTURE);
-
-                if ((count($matches) === 1) && (count($matches[0]) === 3)) {
+                preg_match_all('/\'\'\'[^\']+\'\'\'/', $line, $matches);
+                if ((count($matches) === 1) && (count($matches[0]) >= 3)) {
                     $matches = $matches[0];
-                    $this->info('OK!');
-                    Log::debug('OK!');
+                    $indexOfTotal = array_search("'''Total'''", $matches);
 
-                    $infected = str_replace(['\'', ',', '.'], '', $matches[1][0]);
-                    $dead = str_replace(['\'', ',', '.'], '', $matches[2][0]);
+                    $infected = str_replace(['\'', ',', '.'], '', $matches[$indexOfTotal + 1]);
+                    $dead = str_replace(['\'', ',', '.'], '', $matches[$indexOfTotal + 2]);
 
                     $result = json_encode([
                         'infected' => (int)$infected,
@@ -66,7 +64,11 @@ class ParseStats extends Command
                     ]);
 
                     file_put_contents(storage_path('app' . DIRECTORY_SEPARATOR . 'data.json'), $result);
+
+                    $this->info('OK!');
+                    Log::debug('OK!');
                     $this->info($result);
+                    break;
                 } else {
                     $this->error('NOT OK!');
                     $this->warn($line);

@@ -30,15 +30,15 @@
         transform: translate(-50%, -50%);
     }
 
-    @media (max-width: 767px) {
-        .fullscreen-bg {
-            background: url('/video/bg.jpg') center center / cover no-repeat;
-        }
+    /*@media (max-width: 767px) {*/
+    /*    .fullscreen-bg {*/
+    /*        background: url('/video/bg.jpg') center center / cover no-repeat;*/
+    /*    }*/
 
-        .fullscreen-bg__video {
-            display: none;
-        }
-    }
+    /*    .fullscreen-bg__video {*/
+    /*        display: none;*/
+    /*    }*/
+    /*}*/
 
     pre {
         color: #eee;

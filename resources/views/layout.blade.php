@@ -40,15 +40,15 @@
 
     <div class="row align-items-center counter-row" style="height: 75%">
         <div class="col text-center">
-            <span class="counter">{{ $deaths }}</span>
+            <span class="counter" id="deaths-number">{{ $deaths }}</span>
             <h3>deaths</h3>
         </div>
         <div class="col text-center">
-            <span class="counter">{{ $infected }}</span>
+            <span class="counter" id="infected-number">{{ $infected }}</span>
             <h3>infected</h3>
         </div>
         <div class="col text-center">
-            <span class="counter">{{ $countries }}</span>
+            <span class="counter" id="countries-number">{{ $countries }}</span>
             <h3>countries</h3>
         </div>
 {{--        <div class="col text-center">--}}
@@ -60,6 +60,11 @@
 <audio src="/video/bg-audio.mp3" autoplay loop id="bg-audio">
     audio is not supported.
 </audio>
+
+<script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
 
 <script>
     let audio = document.getElementById("bg-audio");
@@ -77,6 +82,16 @@
             btn.classList.remove('audio-on');
         }
     });
+
+    let liveUpdate = function () {
+        $.get('/live', function(data) {
+            $('#deaths-number').text(data.deaths);
+            $('#infected-number').text(data.infected);
+            $('#countries-number').text(data.countries);
+        });
+    };
+
+    setInterval(liveUpdate, 30 * 1000);
 </script>
 
 

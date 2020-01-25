@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>2019-nCoV</title>
+    <meta name="description" content="2019–20 Wuhan coronavirus outbreak" />
 
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
+    <meta property="og:title" content="2019-nCoV" />
+    <meta property="og:description" content="2019–20 Wuhan coronavirus outbreak" />
     <meta property="og:image" content="https://corona-virus.live/og-image.jpg" />
     <meta property="og:url" content= "https://corona-virus.live/" />
 

@@ -34,6 +34,7 @@ html, body {
 .counter-row {
     color: #FF4040;
     font-weight: bold;
+    line-height: 1
 }
 
 .counter-row h3 {
@@ -49,4 +50,18 @@ html, body {
     .counter {
         font-size: 7rem;
     }
+
+    /*.page-title {*/
+    /*    position: absolute;*/
+    /*    top: 54px;*/
+    /*    left: 55px;*/
+    /*}*/
+}
+
+.page-title {
+    width: 159px;
+    height: 69px;
+    margin-top: 20px;
+    margin-left: 20px;
+    background-image:url('/logo.png')
 }

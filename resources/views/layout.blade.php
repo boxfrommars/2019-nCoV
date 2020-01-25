@@ -32,8 +32,10 @@
     </video>
 </div>
 
-<div class="container h-100">
-    <div class="row align-items-center h-100 counter-row">
+<div class="container h-100" style="position: relative;">
+    <h1 class="text-hide page-title" style="">Coronavirus live</h1>
+
+    <div class="row align-items-center counter-row" style="height: 75%">
         <div class="col text-center">
             <span class="counter">{{ $deaths }}</span>
             <h3>deaths</h3>

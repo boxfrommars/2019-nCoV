@@ -10,6 +10,7 @@
 
     <title>2019-nCoV Coronavirus stats online</title>
     <meta name="description" content="Deaths, infected, spreading: stats and metrics about 2019-nCoV coronavirus outbreak 24/7" />
+    <meta name="keywords" content="virus in china,virus going around 2020,viruses,virus outbreak, virus protection, virus scan, virus outbreak in china, virus vs bacteria, virus definition, virus total" />
 
     <meta property="og:title" content="2019-nCoV Coronavirus stats online" />
     <meta property="og:description" content="Deaths, infected, spreading: stats and metrics about 2019-nCoV coronavirus outbreak 24/7" />

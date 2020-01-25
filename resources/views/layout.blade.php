@@ -54,6 +54,9 @@
         </div>
     </div>
 </div>
+<audio src="/video/bg-audio.mp3" autoplay loop>
+    audio is not supported.
+</audio>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

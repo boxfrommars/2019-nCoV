@@ -8,11 +8,11 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>2019-nCoV</title>
-    <meta name="description" content="2019–20 Wuhan coronavirus outbreak" />
+    <title>2019-nCoV Coronavirus stats online</title>
+    <meta name="description" content="Deaths, infected, spreading: Stats and metrics about 2019-nCoV coronavirus outbreak 24/7" />
 
-    <meta property="og:title" content="2019-nCoV" />
-    <meta property="og:description" content="2019–20 Wuhan coronavirus outbreak" />
+    <meta property="og:title" content="2019-nCoV Coronavirus stats online" />
+    <meta property="og:description" content="Deaths, infected, spreading: Stats and metrics about 2019-nCoV coronavirus outbreak 24/7" />
     <meta property="og:image" content="https://corona-virus.live/og-image.jpg" />
     <meta property="og:url" content= "https://corona-virus.live/" />
 

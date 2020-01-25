@@ -29,6 +29,7 @@ html, body {
 
 .container {
     font-family: Verdana, serif;
+    padding-top: 20px;
 }
 
 .counter-row {
@@ -47,10 +48,19 @@ html, body {
 .page-title {
     width: 128px;
     height: 56px;
-    margin-top: 20px;
     margin-left: 15px;
     background-image:url('/logo.png');
     background-size: cover;
+}
+
+#toggle-audio {
+    width: 25px;
+    height: 20px;
+    background-image: url('/video/audio-on.svg');
+    background-size: cover;
+    position: absolute;
+    right:20px;
+    bottom: 20px;
 }
 
 @media (min-width: 768px) {

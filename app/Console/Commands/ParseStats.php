@@ -57,8 +57,8 @@ class ParseStats extends Command
                     $this->info('OK!');
                     Log::debug('OK!');
 
-                    $infected = str_replace('\'', '', $matches[1][0]);
-                    $dead = str_replace('\'', '', $matches[2][0]);
+                    $infected = str_replace(['\'', ',', '.'], '', $matches[1][0]);
+                    $dead = str_replace(['\'', ',', '.'], '', $matches[2][0]);
 
                     $result = json_encode([
                         'infected' => (int)$infected,

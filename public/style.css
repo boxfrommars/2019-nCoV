@@ -44,24 +44,24 @@ html, body {
 .counter {
     font-size: 3.5rem;
 }
-
+.page-title {
+    width: 128px;
+    height: 56px;
+    margin-top: 20px;
+    margin-left: 20px;
+    background-image:url('/logo.png');
+    background-size: cover;
+}
 
 @media (min-width: 768px) {
     .counter {
         font-size: 7rem;
     }
 
-    /*.page-title {*/
-    /*    position: absolute;*/
-    /*    top: 54px;*/
-    /*    left: 55px;*/
-    /*}*/
+    .page-title {
+        width: 159px;
+        height: 69px;
+    }
 }
 
-.page-title {
-    width: 159px;
-    height: 69px;
-    margin-top: 20px;
-    margin-left: 20px;
-    background-image:url('/logo.png')
-}
+

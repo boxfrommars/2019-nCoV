@@ -45,10 +45,7 @@ class ParseStats extends Command
 
         $result = json_decode($output, true);
 
-        $resultLines = explode('\n\n', $result['parse']['wikitext']['*']);
         $resultLines = [$result['parse']['wikitext']['*']];
-
-//        dd($resultLines);
 
         foreach ($resultLines as $line) {
             if (strpos($line, "'''Total'''") > 0) {
@@ -56,22 +53,17 @@ class ParseStats extends Command
                 preg_match_all('/\'\'\'[^\']+\'\'\'/', $line, $matches);
                 if ((count($matches) === 1) && (count($matches[0]) >= 3)) {
 
-//                    $countries = substr_count(mb_strtolower($line), '| {{');
-
-                    preg_match_all('/(^\|\s?{{)|(^\|\s?\[\[)/m', $line, $countries);
-                    $countries = count($countries[0]);
-
                     $matches = $matches[0];
                     $indexOfTotal = array_search("'''Total'''", $matches);
 
                     $infected = str_replace(['\'', ',', '.'], '', $matches[$indexOfTotal + 1]);
                     $dead = str_replace(['\'', ',', '.'], '', $matches[$indexOfTotal + 2]);
+                    $recovered = str_replace(['\'', ',', '.'], '', $matches[$indexOfTotal + 3]);
 
                     $result = json_encode([
                         'infected' => (int)$infected,
                         'deaths' => (int)$dead,
-                        'countries' => $countries,
-                        'cities' => 32,
+                        'recovered' => $recovered,
                     ]);
 
                     file_put_contents(storage_path('app' . DIRECTORY_SEPARATOR . 'data.json'), $result);

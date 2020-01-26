@@ -48,13 +48,9 @@
             <h3>infected</h3>
         </div>
         <div class="col text-center">
-            <span class="counter" id="countries-number">{{ $countries }}</span>
-            <h3>countries</h3>
+            <span class="counter" id="recovered-number">{{ $recovered }}</span>
+            <h3>recovered</h3>
         </div>
-{{--        <div class="col text-center">--}}
-{{--            <span class="counter">{{ $cities }}</span>--}}
-{{--            <h3>cities</h3>--}}
-{{--        </div>--}}
     </div>
 </div>
 <audio src="/video/bg-audio.mp3" autoplay loop id="bg-audio">
@@ -87,7 +83,7 @@
         $.get('/live', function(data) {
             $('#deaths-number').text(data.deaths);
             $('#infected-number').text(data.infected);
-            $('#countries-number').text(data.countries);
+            $('#recovered-number').text(data.recovered);
         });
     };
 

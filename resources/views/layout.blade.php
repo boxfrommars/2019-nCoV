@@ -54,9 +54,8 @@
     </div>
     <?php
      $countries = [
-         'China', 'Thailand', 'Hong Kong', 'Australia', 'Malaysia', 'Singapore',
-         'France', 'Japan', 'Vietnam', 'Canada', 'Macao', 'Republic of Korea',
-         'Philippines', 'USA', 'Nepal', 'Saudi Arabia'];
+         'China', 'Thailand', 'Hong Kong', 'Macau', 'Australia', 'Japan', 'Malaysia', 'Singapore',
+         'France', 'South Korea', 'Taiwan', 'United States', 'Vietnam', 'Canada', 'Nepal'];
 
     $line = implode('&nbsp;&nbsp;&nbsp;&nbsp;', $countries);
     ?>

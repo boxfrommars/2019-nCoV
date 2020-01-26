@@ -47,6 +47,8 @@ class ParseStats extends Command
 
         $resultLines = [$result['parse']['wikitext']['*']];
 
+        $lastData = json_decode(file_get_contents(storage_path('app') . DIRECTORY_SEPARATOR . 'data.json'), true);
+
         foreach ($resultLines as $line) {
             if (strpos($line, "'''Total'''") > 0) {
 
@@ -56,14 +58,14 @@ class ParseStats extends Command
                     $matches = $matches[0];
                     $indexOfTotal = array_search("'''Total'''", $matches);
 
-                    $infected = str_replace(['\'', ',', '.'], '', $matches[$indexOfTotal + 1]);
-                    $dead = str_replace(['\'', ',', '.'], '', $matches[$indexOfTotal + 2]);
-                    $recovered = str_replace(['\'', ',', '.'], '', $matches[$indexOfTotal + 3]);
+                    $infected = key_exists($indexOfTotal + 1, $matches) ? $this->trim($matches[$indexOfTotal + 1]) : $lastData['infected'];
+                    $dead = key_exists($indexOfTotal + 2, $matches) ? $this->trim($matches[$indexOfTotal + 2]) : $lastData['deaths'];
+                    $recovered = key_exists($indexOfTotal + 3, $matches) ? $this->trim($matches[$indexOfTotal + 3]) : $lastData['recovered'];
 
                     $result = json_encode([
                         'infected' => (int)$infected,
                         'deaths' => (int)$dead,
-                        'recovered' => $recovered,
+                        'recovered' => (int)$recovered,
                     ]);
 
                     file_put_contents(storage_path('app' . DIRECTORY_SEPARATOR . 'data.json'), $result);
@@ -80,5 +82,10 @@ class ParseStats extends Command
                 }
             }
         }
+    }
+
+    protected function trim($str)
+    {
+        return  str_replace(['\'', ',', '.'], '', $str);
     }
 }

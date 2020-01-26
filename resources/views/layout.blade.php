@@ -34,22 +34,27 @@
     </video>
 </div>
 
-<div class="container h-100">
-    <h1 class="text-hide page-title" style="">Coronavirus live</h1>
-    <a href="#" id="toggle-audio" class="audio-on"></a>
-
-    <div class="row align-items-center counter-row" style="height: 75%">
-        <div class="col text-center">
-            <span class="counter" id="deaths-number">{{ $deaths }}</span>
-            <h3>deaths</h3>
-        </div>
-        <div class="col text-center">
-            <span class="counter" id="infected-number">{{ $infected }}</span>
-            <h3>infected</h3>
-        </div>
-        <div class="col text-center">
-            <span class="counter" id="recovered-number">{{ $recovered }}</span>
-            <h3>recovered</h3>
+<div class="container-fluid h-100">
+    <header>
+        <nav class="navbar" style="padding-top: 20px;">
+            <h1 class="text-hide page-title" style="">Coronavirus live</h1>
+            <a href="#" id="toggle-audio" class="audio-on"></a>
+        </nav>
+    </header>
+    <div class="container" style="height: 70%">
+        <div class="row align-items-center counter-row h-100">
+            <div class="col text-center">
+                <span class="counter" id="deaths-number">{{ $deaths }}</span>
+                <h3>deaths</h3>
+            </div>
+            <div class="col text-center">
+                <span class="counter" id="infected-number">{{ $infected }}</span>
+                <h3>infected</h3>
+            </div>
+            <div class="col text-center">
+                <span class="counter" id="recovered-number">{{ $recovered }}</span>
+                <h3>recovered</h3>
+            </div>
         </div>
     </div>
     <?php

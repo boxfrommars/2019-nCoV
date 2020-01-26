@@ -65,7 +65,7 @@ html, body {
     /*background-image: url('/video/audio-on.svg');*/
     background-size: cover;
     position: absolute;
-    top: 20px;
+    top: 45px;
 }
 
 #toggle-audio.audio-on {
@@ -104,6 +104,7 @@ html, body {
 
 .countries {
     position: absolute;
+    font-family: Verdana, serif;
     bottom: 10px;
     left: 0;
     color: #FF4040;

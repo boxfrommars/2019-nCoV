@@ -38,7 +38,7 @@
     <h1 class="text-hide page-title" style="">Coronavirus live</h1>
     <a href="#" id="toggle-audio" class="audio-on"></a>
 
-    <div class="row align-items-center counter-row" style="height: 60%">
+    <div class="row align-items-center counter-row" style="height: 75%">
         <div class="col text-center">
             <span class="counter" id="deaths-number">{{ $deaths }}</span>
             <h3>deaths</h3>

@@ -38,7 +38,7 @@
     <h1 class="text-hide page-title" style="">Coronavirus live</h1>
     <a href="#" id="toggle-audio" class="audio-on"></a>
 
-    <div class="row align-items-center counter-row" style="height: 75%">
+    <div class="row align-items-center counter-row" style="height: 60%">
         <div class="col text-center">
             <span class="counter" id="deaths-number">{{ $deaths }}</span>
             <h3>deaths</h3>
@@ -51,6 +51,17 @@
             <span class="counter" id="recovered-number">{{ $recovered }}</span>
             <h3>recovered</h3>
         </div>
+    </div>
+    <?php
+     $countries = [
+         'China', 'Thailand', 'Hong Kong', 'Australia', 'Malaysia', 'Singapore',
+         'France', 'Japan', 'Vietnam', 'Canada', 'Macao', 'Republic of Korea',
+         'Philippines', 'USA', 'Nepal', 'Saudi Arabia'];
+
+    $line = implode('&nbsp;&nbsp;&nbsp;&nbsp;', $countries);
+    ?>
+    <div class="countries marquee">
+        <span>{!! implode('&nbsp;&nbsp;&nbsp;&nbsp;', [$line, $line, $line, $line, $line, $line, $line]) !!}</span>
     </div>
 </div>
 <audio src="/video/bg-audio.mp3" autoplay loop id="bg-audio">

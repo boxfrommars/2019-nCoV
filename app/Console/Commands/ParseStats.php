@@ -33,7 +33,7 @@ class ParseStats extends Command
             'page' => '2019–20_Wuhan_coronavirus_outbreak',
             'format' => 'json',
             'prop' => 'wikitext',
-            'section' => 0,
+            'section' => 7,
         ];
 
         $url = $endPoint . '?' . http_build_query($params);
@@ -46,6 +46,8 @@ class ParseStats extends Command
         $result = json_decode($output, true);
 
         $resultLines = [$result['parse']['wikitext']['*']];
+
+//        dd($resultLines);
 
         $lastData = json_decode(file_get_contents(storage_path('app') . DIRECTORY_SEPARATOR . 'data.json'), true);
 

@@ -30,10 +30,10 @@ class ParseStats extends Command
         $endPoint = 'https://en.wikipedia.org/w/api.php';
         $params = [
             'action' => 'parse',
-            'page' => '2019–20_Wuhan_coronavirus_outbreak',
+            'page' => 'Template:2019_coronavirus_pandemic_data',
             'format' => 'json',
             'prop' => 'wikitext',
-            'section' => 7,
+//            'section' => 6,
         ];
 
         $url = $endPoint . '?' . http_build_query($params);
@@ -44,7 +44,7 @@ class ParseStats extends Command
         curl_close($ch);
 
         $result = json_decode($output, true);
-
+//	dd($result);
         $resultLines = [$result['parse']['wikitext']['*']];
 
 //        dd($resultLines);

@@ -67,7 +67,9 @@ class ParseStats extends Command
                     $result = json_encode([
                         'infected' => (int)$infected,
                         'deaths' => (int)$dead,
-                        'recovered' => (int)$recovered,
+//                        'recovered' => (int)$recovered,
+                        'recovered' => 67,
+
                     ]);
 
                     file_put_contents(storage_path('app' . DIRECTORY_SEPARATOR . 'data.json'), $result);

@@ -69,7 +69,7 @@ class ParseStats extends Command
                         'deaths' => (int)$dead,
 //                        'recovered' => (int)$recovered,
                         'recovered' => 67,
-
+                        'countries' => 18,
                     ]);
 
                     file_put_contents(storage_path('app' . DIRECTORY_SEPARATOR . 'data.json'), $result);

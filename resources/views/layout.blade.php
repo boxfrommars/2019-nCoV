@@ -30,7 +30,7 @@
 
 <div class="fullscreen-bg">
     <video loop muted autoplay playsinline poster="/video/bg.jpg" class="fullscreen-bg__video">
-        <source src="/video/bg-movie-1.mp4" type="video/mp4">
+        <source src="/video/bg-movie-2.mp4" type="video/mp4">
     </video>
 </div>
 

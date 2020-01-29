@@ -44,52 +44,40 @@ class ParseStats extends Command
         curl_close($ch);
 
         $result = json_decode($output, true);
-//	dd($result);
-        $resultLines = [$result['parse']['wikitext']['*']];
 
-//        dd($resultLines);
+        $txt = $result['parse']['wikitext']['*'];
+        $txt = mb_substr($txt, mb_strpos($txt, 'Total'));
 
-        $lastData = json_decode(file_get_contents(storage_path('app') . DIRECTORY_SEPARATOR . 'data.json'), true);
+        preg_match_all('/\d+,?\d+/', $txt, $matches);
+        $matches = $matches[0];
+        $matches = array_map(function ($elm) { return $this->trim($elm); }, $matches);
 
-        foreach ($resultLines as $line) {
-            if (strpos($line, "'''Total'''") > 0) {
+//        $lastData = json_decode(file_get_contents(storage_path('app') . DIRECTORY_SEPARATOR . 'data.json'), true);
+        if (count($matches) >= 2 && $matches[0] > 5500) {
+            $result = json_encode([
+                'infected' => (int)$matches[0],
+                'deaths' => (int)$matches[1],
+                'recovered' => 67,
+                'countries' => 18,
+            ]);
 
-                preg_match_all('/\'\'\'[^\']+\'\'\'/', $line, $matches);
-                if ((count($matches) === 1) && (count($matches[0]) >= 3)) {
+            file_put_contents(storage_path('app' . DIRECTORY_SEPARATOR . 'data.json'), $result);
 
-                    $matches = $matches[0];
-                    $indexOfTotal = array_search("'''Total'''", $matches);
-
-                    $infected = key_exists($indexOfTotal + 1, $matches) ? $this->trim($matches[$indexOfTotal + 1]) : $lastData['infected'];
-                    $dead = key_exists($indexOfTotal + 2, $matches) ? $this->trim($matches[$indexOfTotal + 2]) : $lastData['deaths'];
-                    $recovered = key_exists($indexOfTotal + 3, $matches) ? $this->trim($matches[$indexOfTotal + 3]) : $lastData['recovered'];
-
-                    $result = json_encode([
-                        'infected' => (int)$infected,
-                        'deaths' => (int)$dead,
-//                        'recovered' => (int)$recovered,
-                        'recovered' => 67,
-                        'countries' => 18,
-                    ]);
-
-                    file_put_contents(storage_path('app' . DIRECTORY_SEPARATOR . 'data.json'), $result);
-
-                    $this->info('OK!');
-                    Log::debug('OK!');
-                    $this->info($result);
-                    break;
-                } else {
-                    $this->error('NOT OK!');
-                    $this->warn($line);
-                    Log::error('NOT OK!');
-                    Log::debug($line);
-                }
-            }
+            $this->info('OK!');
+            Log::debug('OK!');
+            $this->info($result);
+        } else {
+            $this->error('NOT OK!');
+            $this->warn($txt);
+            $this->warn(json_encode($matches));
+            Log::error('NOT OK!');
+            Log::debug($txt);
+            Log::debug(json_encode($matches));
         }
     }
 
     protected function trim($str)
     {
-        return  str_replace(['\'', ',', '.'], '', $str);
+        return  (int) str_replace(['\'', ',', '.'], '', $str);
     }
 }

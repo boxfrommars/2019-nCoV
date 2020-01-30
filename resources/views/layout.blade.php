@@ -61,7 +61,7 @@
      $countries = [
          'China', 'Thailand', 'Hong Kong', 'Macau', 'Australia', 'Japan', 'Malaysia', 'Singapore',
          'France', 'South Korea', 'Taiwan', 'United States', 'Vietnam', 'United Arab Emirates', 'Canada', 'Cambodia', 'Germany',
-         'Finland', 'Nepal', 'Sri Lanka'];
+         'Finland', 'India', 'Nepal', 'Philippines', 'Sri Lanka'];
 
     $line = implode('&nbsp;&nbsp;&nbsp;&nbsp;', $countries);
     ?>

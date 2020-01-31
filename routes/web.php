@@ -7,7 +7,7 @@ $countries = [
     'Russia', 'China', 'Thailand', 'Hong Kong', 'Macau', 'Australia', 'Japan', 'Malaysia',
     'Singapore', 'France', 'South Korea', 'Taiwan', 'United States', 'Vietnam', 'United Arab Emirates', 'Canada',
     'Italy', 'United Kingdom', 'Cambodia', 'Germany', 'Finland', 'India', 'Nepal', 'Philippines',
-    'Sri Lanka'
+    'Sri Lanka', 'Sweden',
 ];
 
 /** @var Router $router */

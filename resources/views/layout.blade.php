@@ -24,7 +24,7 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#333333">
-    <link rel="stylesheet" href="/style.css?v=2" />
+    <link rel="stylesheet" href="/style.css?v=3" />
 </head>
 <body>
 
@@ -58,15 +58,12 @@
         </div>
     </div>
     <?php
-     $countries = [
-         'Russia', 'China', 'Thailand', 'Hong Kong', 'Macau', 'Australia', 'Japan', 'Malaysia', 'Singapore', 'France', 'South Korea', 
-         'Taiwan', 'United States', 'Vietnam', 'United Arab Emirates', 'Canada', 'Italy', 'United Kingdom', 'Cambodia', 'Germany', 'Finland', 'India', 
-         'Nepal', 'Philippines', 'Sri Lanka'];
+    $separator = '&nbsp;&nbsp;&nbsp;&nbsp;';
 
-    $line = implode('&nbsp;&nbsp;&nbsp;&nbsp;', $countries);
+    $line = implode($separator, array_merge(...array_fill(0, 7, $countries)));
     ?>
     <div class="countries marquee">
-        <span>{!! implode('&nbsp;&nbsp;&nbsp;&nbsp;', [$line, $line, $line, $line, $line, $line, $line]) !!}</span>
+        <span>{!! $line !!}</span>
     </div>
 </div>
 <audio src="/video/bg-audio.mp3" autoplay loop id="bg-audio">
@@ -100,6 +97,16 @@
             $('#deaths-number').text(data.deaths);
             $('#infected-number').text(data.infected);
             $('#recovered-number').text(data.recovered);
+
+            let countries = [];
+
+            for(let i = 0; i < 7; i++) {
+                countries = countries.concat(data.countries);
+            }
+
+            let line = countries.join('&nbsp;&nbsp;&nbsp;&nbsp;');
+            $('.countries span').html(line);
+
         });
     };
 

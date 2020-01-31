@@ -46,7 +46,7 @@ class ParseStats extends Command
         $result = json_decode($output, true);
 
         $txt = $result['parse']['wikitext']['*'];
-        $txt = mb_substr($txt, mb_strpos($txt, 'Total'));
+        $txt = mb_substr($txt, mb_strpos($txt, 'territories'));
 
         preg_match_all('/\d+,?\d+/', $txt, $matches);
         $matches = $matches[0];

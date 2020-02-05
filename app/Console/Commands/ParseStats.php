@@ -30,7 +30,7 @@ class ParseStats extends Command
         $endPoint = 'https://en.wikipedia.org/w/api.php';
         $params = [
             'action' => 'parse',
-            'page' => 'Template:2019-20_Wuhan_coronavirus_data/World',
+            'page' => 'Template:2019–20_Wuhan_coronavirus_data',
             'format' => 'json',
             'prop' => 'wikitext',
 //            'section' => 6,

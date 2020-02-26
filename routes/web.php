@@ -6,8 +6,10 @@ use Laravel\Lumen\Routing\Router;
 $countries = [
     'Russia', 'China', 'Thailand', 'Hong Kong', 'Macau', 'Australia', 'Japan', 'Malaysia',
     'Singapore', 'France', 'South Korea', 'Taiwan', 'United States', 'Vietnam', 'United Arab Emirates', 'Canada',
-    'Italy', 'United Kingdom', 'Belgium', 'Cambodia', 'Germany', 'Finland', 'India', 'Nepal', 'Philippines',
-    'Spain', 'Sri Lanka', 'Sweden', 'Egypt', 'Cambodia'
+    'Italy', 'United Kingdom', 'Belgium', 'Cambodia', 'Germany', 'Finland', 'India', 'Nepal',
+    'Philippines', 'Spain', 'Sri Lanka', 'Sweden', 'Egypt', 'Iran', 'Bahrain',
+    'Kuwait', 'Iraq', 'Oman', 'Croatia', 'Austria', 'Israel', 'Lebanon',
+    'Pakistan', 'Afghanistan', 'Algeria', 'Brazil', 'Greece', 'North Macedonia', 'Switzerland', 'Georgia'
 ];
 
 /** @var Router $router */

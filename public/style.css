@@ -116,7 +116,7 @@ html, body {
 
 @media (min-width: 768px) {
     .counter {
-        font-size: 6rem;
+        font-size: 5.5rem;
     }
 
     .page-title {
@@ -125,4 +125,12 @@ html, body {
     }
 }
 
+@media (min-width: 1200px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 1200px;
+        padding-left: 0;
+        padding-right: 0;
+
+    }
+}
 

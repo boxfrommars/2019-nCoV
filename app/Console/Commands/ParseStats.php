@@ -46,13 +46,14 @@ class ParseStats extends Command
         $result = json_decode($output, true);
 
         $txt = $result['parse']['wikitext']['*'];
-        $txt = mb_substr($txt, mb_strpos($txt, 'territories'));
+        $txt = mb_substr($txt, mb_strpos($txt, 'Total'));
 
         preg_match_all('/\d+,?\d+/', $txt, $matches);
         $matches = $matches[0];
         $matches = array_map(function ($elm) { return $this->trim($elm); }, $matches);
 
 //        $lastData = json_decode(file_get_contents(storage_path('app') . DIRECTORY_SEPARATOR . 'data.json'), true);
+        if ($matches[0] < 500) array_shift($matches);
         if (count($matches) >= 2 && $matches[0] > 5500) {
             $result = json_encode([
                 'infected' => (int)$matches[0],

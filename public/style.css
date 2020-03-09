@@ -116,7 +116,8 @@ html, body {
 
 @media (min-width: 768px) {
     .counter {
-        font-size: 5.5rem;
+        font-size: 6rem;
+        letter-spacing: -3px;
     }
 
     .page-title {

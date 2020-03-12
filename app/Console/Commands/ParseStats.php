@@ -30,10 +30,9 @@ class ParseStats extends Command
         $endPoint = 'https://en.wikipedia.org/w/api.php';
         $params = [
             'action' => 'parse',
-            'page' => 'Template:2019–20_coronavirus_outbreak_data',
+            'page' => 'Template:2019–20_coronavirus_pandemic_data',
             'format' => 'json',
             'prop' => 'wikitext',
-//            'section' => 6,
         ];
 
         $url = $endPoint . '?' . http_build_query($params);
@@ -45,36 +44,63 @@ class ParseStats extends Command
 
         $result = json_decode($output, true);
 
-        $txt = $result['parse']['wikitext']['*'];
-        $txt = mb_substr($txt, mb_strpos($txt, 'Total'));
+        $maintxt = $result['parse']['wikitext']['*'];
+        $maintxt = preg_replace("/\[\[[^]]+\]\]/","", $maintxt);
 
-        preg_match_all('/\d+,?\d+/', $txt, $matches);
+//        $this->info($maintxt);
+
+        $totalData = $this->parseString($maintxt, 'scope="row"', true);
+        if ($totalData) {
+            $totalData = json_encode($totalData);
+            file_put_contents(storage_path('app' . DIRECTORY_SEPARATOR . 'data.json'), $totalData);
+            $this->info('OK!');
+            Log::debug('OK!');
+            $this->info($totalData);
+        } else {
+            $this->error('NOT OK!');
+            Log::error('NOT OK!');
+        }
+
+        $countries = ['Sweden', 'Finland', 'Estonia'];
+        $cruiseData = [];
+
+        foreach ($countries as $country) {
+            $cruiseData[$country] = $this->parseString($maintxt, $country);
+        }
+
+        $cruiseData = json_encode($cruiseData);
+        file_put_contents(storage_path('app' . DIRECTORY_SEPARATOR . 'cruise.json'), $cruiseData);
+        $this->info($cruiseData);
+    }
+
+    /**
+     * @param $text
+     * @param $word
+     * @param bool $shift
+     * @return null|array
+     */
+    protected function parseString($text, $word, $shift = false)
+    {
+        $txt = mb_substr($text, mb_strpos($text, $word));
+
+        preg_match_all('/\d+,?\d*/', $txt, $matches);
         $matches = $matches[0];
         $matches = array_map(function ($elm) { return $this->trim($elm); }, $matches);
 
-//        $lastData = json_decode(file_get_contents(storage_path('app') . DIRECTORY_SEPARATOR . 'data.json'), true);
-        if ($matches[0] < 500) array_shift($matches);
-        if (count($matches) >= 2 && $matches[0] > 5500) {
-            $result = json_encode([
+        if ($shift) array_shift($matches);
+
+        if (count($matches) >= 2 && $matches[0] > 10) {
+            return [
                 'infected' => (int)$matches[0],
                 'deaths' => (int)$matches[1],
                 'recovered' => (int)$matches[2],
-                'countries' => 27,
-            ]);
-
-            file_put_contents(storage_path('app' . DIRECTORY_SEPARATOR . 'data.json'), $result);
-
-            $this->info('OK!');
-            Log::debug('OK!');
-            $this->info($result);
+            ];
         } else {
-            $this->error('NOT OK!');
-            $this->warn($txt);
-            $this->warn(json_encode($matches));
-            Log::error('NOT OK!');
-            Log::debug($txt);
-            Log::debug(json_encode($matches));
+            $this->info($txt);
+            $this->info(json_encode($matches));
         }
+
+        return null;
     }
 
     protected function trim($str)

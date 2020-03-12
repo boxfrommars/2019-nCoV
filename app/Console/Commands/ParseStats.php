@@ -60,6 +60,8 @@ class ParseStats extends Command
             $this->error('NOT OK!');
             Log::error('NOT OK!');
         }
+        
+        $maintxt = preg_replace('/"[^"]+"/',"", $maintxt);
 
         $countries = ['Sweden', 'Finland', 'Estonia'];
         $cruiseData = [];

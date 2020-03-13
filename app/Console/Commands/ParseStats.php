@@ -49,7 +49,7 @@ class ParseStats extends Command
 
 //        $this->info($maintxt);
 
-        $totalData = $this->parseString($maintxt, 'scope="row"', true);
+        $totalData = $this->parseString($maintxt, 'scope="row"', 2);
         if ($totalData) {
             $totalData = json_encode($totalData);
             file_put_contents(storage_path('app' . DIRECTORY_SEPARATOR . 'data.json'), $totalData);
@@ -60,7 +60,7 @@ class ParseStats extends Command
             $this->error('NOT OK!');
             Log::error('NOT OK!');
         }
-        
+
         $maintxt = preg_replace('/"[^"]+"/',"", $maintxt);
 
         $countries = ['Sweden', 'Finland', 'Estonia'];
@@ -78,10 +78,10 @@ class ParseStats extends Command
     /**
      * @param $text
      * @param $word
-     * @param bool $shift
+     * @param bool $offset
      * @return null|array
      */
-    protected function parseString($text, $word, $shift = false)
+    protected function parseString($text, $word, $offset = 0)
     {
         $txt = mb_substr($text, mb_strpos($text, $word));
 
@@ -89,7 +89,7 @@ class ParseStats extends Command
         $matches = $matches[0];
         $matches = array_map(function ($elm) { return $this->trim($elm); }, $matches);
 
-        if ($shift) array_shift($matches);
+        $matches = array_slice($matches, $offset);
 
         if (count($matches) >= 2 && $matches[0] > 10) {
             return [

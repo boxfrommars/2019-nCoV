@@ -24,7 +24,7 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#333333">
-    <link rel="stylesheet" href="/style.css?v=5" />
+    <link rel="stylesheet" href="/style.css?v=6" />
 </head>
 <body>
 
@@ -60,7 +60,7 @@
     <?php
     $separator = '&nbsp;&nbsp;&nbsp;&nbsp;';
 
-    $line = implode($separator, array_merge(...array_fill(0, 7, $countries)));
+    $line = implode($separator, $countries);
     ?>
     <div class="countries marquee">
         <span>{!! $line !!}</span>
@@ -98,19 +98,14 @@
             $('#infected-number').text(data.infected);
             $('#recovered-number').text(data.recovered);
 
-            let countries = [];
-
-            for(let i = 0; i < 7; i++) {
-                countries = countries.concat(data.countries);
-            }
-
+            let countries = data.countries;
             let line = countries.join('&nbsp;&nbsp;&nbsp;&nbsp;');
             $('.countries span').html(line);
 
         });
     };
 
-    setInterval(liveUpdate, 30 * 1000);
+    setInterval(liveUpdate, 2 * 1000);
 </script>
 
 

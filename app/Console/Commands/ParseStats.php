@@ -64,7 +64,7 @@ class ParseStats extends Command
             Log::error('NOT OK!');
         }
 
-        $countries = ['Sweden', 'Finland', 'Estonia'];
+        $countries = ['Sweden', 'Finland', 'Estonia', 'Russia'];
         $cruiseData = [];
 
         foreach ($countries as $country) {

@@ -46,10 +46,13 @@ class ParseStats extends Command
 
         $maintxt = $result['parse']['wikitext']['*'];
         $maintxt = preg_replace("/\[\[[^]]+\]\]/","", $maintxt);
+        $maintxt = preg_replace('("[^"]*")',"", $maintxt);
+
+
 
 //        $this->info($maintxt);
 
-        $totalData = $this->parseString($maintxt, 'scope="row"', 2);
+        $totalData = $this->parseString($maintxt, "| '''", 1);
         if ($totalData) {
             $totalData = json_encode($totalData);
             file_put_contents(storage_path('app' . DIRECTORY_SEPARATOR . 'data.json'), $totalData);
@@ -60,8 +63,6 @@ class ParseStats extends Command
             $this->error('NOT OK!');
             Log::error('NOT OK!');
         }
-
-        $maintxt = preg_replace('/"[^"]+"/',"", $maintxt);
 
         $countries = ['Sweden', 'Finland', 'Estonia'];
         $cruiseData = [];
@@ -85,7 +86,7 @@ class ParseStats extends Command
     {
         $txt = mb_substr($text, mb_strpos($text, $word));
 
-        preg_match_all('/\d+,?\d*/', $txt, $matches);
+        preg_match_all('/\|\s?\'*\s?\d+,?\d*/', $txt, $matches);
         $matches = $matches[0];
         $matches = array_map(function ($elm) { return $this->trim($elm); }, $matches);
 
@@ -107,6 +108,6 @@ class ParseStats extends Command
 
     protected function trim($str)
     {
-        return  (int) str_replace(['\'', ',', '.'], '', $str);
+        return  (int) str_replace(['\'', ',', '.', '|'], '', $str);
     }
 }
